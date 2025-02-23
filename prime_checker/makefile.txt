@@ -1,0 +1,26 @@
+# Имя исполняемого файла
+EXEC = prime_checker
+
+# Компилятор
+CC = g++
+
+# Флаги компиляции
+CFLAGS = -Wall -Wextra -O2
+
+# Исходные файлы
+SRC = main.cpp
+
+# Объектные файлы
+OBJ = $(SRC:.cpp=.o)
+
+# Правило для компиляции
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Правило для очистки
+clean:
+	rm -f $(EXEC) $(OBJ)
+
+.PHONY: all clean
